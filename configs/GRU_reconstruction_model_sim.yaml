@@ -1,0 +1,26 @@
+constant_force_norm: 0.004
+dataset:
+  real_data: False
+models:
+  rep_learning_model:
+    name: ReconstructionModel
+    force_size: 32
+    locations_size: 2
+    representation_size: 1024
+    gru_tbptt_step_size:
+    input_num_random_samples: 128
+    reconstruction_num_random_samples: 128
+    pe_max_freq_log2: 4
+    force_predictor_hidden: 2048
+    decoder_input_embed_dim: 2048
+    gru_input_embed_dim: 256
+    consistency_reg_weight: 0.0
+    mask_percentage: 0.2
+    trajectory_level_mask: True
+    dropout: 0
+  downstream_model:
+    name: TransposedConvImagePred
+    num_channels: 8
+    num_bins: 3
+    dropout: 0
+    balance_image_classes: False
